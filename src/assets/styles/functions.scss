@@ -1,0 +1,19 @@
+@function getUiColor($type, $hue: false) {
+  @if $hue {
+    @return map_get($ui-colors, #{$type + "-" + $hue});
+  } @else {
+    @return map_get($ui-colors, $type);
+  }
+}
+
+@function getFontWeight($name: "regular") {
+  @return map-get($map: $fontWeight-map, $key: $name);
+}
+
+@function getSpace($type: "md") {
+    @return map_get($space-map, $type);
+}
+
+@function getIndex($type: "normal") {
+  @return map_get($zIndex-map, $type);
+}
