@@ -1,30 +1,30 @@
 @import "./variables.scss";
 
 @mixin media($width, $type: min, $orientation: portrait) {
-  @if map_has_key($breakpoints, $width) {
-    $width: map_get($breakpoints, $width);
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
 
-    @if $type == max {
-      $width: $width - 1px;
-    }
+        @if $type == max {
+            $width: $width - 1px;
+        }
 
-    @if $orientation == landscape {
-      @media only screen and (#{$type}-width: $width) and (orientation: $orientation) {
-        @content;
-      }
-    } @else {
-      @media only screen and (#{$type}-width: $width) {
-        @content;
-      }
+        @if $orientation == landscape {
+            @media only screen and (#{$type}-width: $width) and (orientation: $orientation) {
+                @content;
+            }
+        } @else {
+            @media only screen and (#{$type}-width: $width) {
+                @content;
+            }
+        }
     }
-  }
 }
 
 @mixin fontSize($fontSizeName: md, $lineHeightName: $fontSizeName) {
-  font-size: map_get($fontSize-map, $fontSizeName);
-  line-height: map_get($lineHeight-map, $lineHeightName);
+    font-size: map_get($fontSize-map, $fontSizeName);
+    line-height: map_get($lineHeight-map, $lineHeightName);
 }
 
 @mixin fontFamily($family: "primary", $type: "regular") {
-  font-family: map_get($font-families, $family), sans-serif;
+    font-family: map_get($font-families, $family), sans-serif;
 }

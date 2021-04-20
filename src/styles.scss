@@ -2,5 +2,32 @@
 
 @import "/src/assets/styles/index.scss";
 
+$colors: (
+    'green': getUiColor('green'),
+    'white': getUiColor('gray', 1),
+    'gray': getUiColor('gray', 4),
+    'gray-dark': getUiColor('gray', 5),
+);
+$theme-colors: (
+    'primary': getUiColor('green'),
+    'light': getUiColor('gray', 1),
+    'dark': getUiColor('green', 6),
+);
+
+$grays: (
+    '100': getUiColor('gray', 1),
+    '200': getUiColor('gray', 2),
+    '300': getUiColor('gray', 3),
+    '400': getUiColor('gray', 4),
+    '500': getUiColor('gray', 5),
+    '600': getUiColor('gray', 6),
+);
+
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+body {
+    @include fontFamily('primary')
+}

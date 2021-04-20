@@ -1,0 +1,6 @@
+@import "/src/assets/styles/index.scss";
+
+.search {
+    background-color: getUiColor("gray", 1);
+    padding: getSpace("lg") getSpace("xxl");
+}

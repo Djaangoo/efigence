@@ -1,0 +1,12 @@
+<div class="tags btn-group btn-group-toggle">
+  <label ngbButtonLabel class="tags__label" (click)="clearTags()">
+    <input type="checkbox" ngbButton [(ngModel)]="allTags"/> 
+    <span class="tags__name">Wszystkie</span>
+    <i *ngIf="allTags" class="tags__icon bi bi-x"></i>
+  </label>
+  <label *ngFor="let tag of tags" ngbButtonLabel class="tags__label">
+    <input type="checkbox" ngbButton (change)="toggleTag(tag)" />
+    <span class="tags__name">{{tag.name}}</span>
+    <i *ngIf="tag.checked" class="tags__icon bi bi-x"></i>
+  </label>
+</div>

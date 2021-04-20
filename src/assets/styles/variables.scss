@@ -1,0 +1,76 @@
+$breakpoints: (
+    "s": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1400px,
+);
+
+$ui-colors: (
+    "green": #65c4d4,
+    "green-1": #feffff,
+    "green-2": #e0fffc,
+    "green-3": #65c4d4,
+    "green-4": #13c2c2,
+    "green-5": #006d75,
+    "green-6": #002329,
+    "gray": #bfbfbf,
+    "gray-1": #ffffff,
+    "gray-2": #f5f5f5,
+    "gray-3": #f0f0f0,
+    "gray-4": #bfbfbf,
+    "gray-5": #262626,
+    "gray-6": #000000,
+);
+
+$fontWeight-map: (
+    "light": 300,
+    "regular": 400,
+    "bold": 700,
+    "black": 900,
+);
+
+$space-map: (
+    xxs: 4px,
+    xs: 8px,
+    s: 12px,
+    md: 16px,
+    lg: 24px,
+    xl: 32px,
+    xxl: 40px,
+    default: 16px,
+);
+
+$fontSize-map: (
+    xs: 12px,
+    sm: 14px,
+    md: 16px,
+    lg: 18px,
+    xl: 24px,
+    xxl: 28px,
+    xxxl: 38px,
+);
+
+$lineHeight-map: (
+    xs: 20px,
+    sm: 22px,
+    md: 24px,
+    lg: 26px,
+    xl: 32px,
+    xxl: 36px,
+    xxxl: 46px,
+);
+
+$font-families: (
+    "primary": "Lato",
+);
+
+$zIndex-map: (
+    "hide": -1,
+    "normal": 0,
+    "over": 1,
+    "ui": 10,
+    "root": 1000,
+);
+
+$border-radius: 4px;

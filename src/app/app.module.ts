@@ -9,9 +9,9 @@ import { SharedModule } from './shared/shared.module';
 import { Page404Module } from './views/page404/page404.module';
 import { ReportsModule } from './views/reports/reports.module';
 @NgModule({
-    declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, NgbModule, CoreModule, SharedModule, Page404Module, ReportsModule],
+    declarations: [ AppComponent ],
+    imports: [ BrowserModule, AppRoutingModule, NgbModule, CoreModule, SharedModule, Page404Module, ReportsModule ],
     providers: [],
-    bootstrap: [AppComponent],
+    bootstrap: [ AppComponent ],
 })
 export class AppModule {}

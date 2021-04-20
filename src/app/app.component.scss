@@ -1,0 +1,6 @@
+@import "/src/assets/styles/index.scss";
+
+:host {
+    background-color: getUiColor("gray", 2);
+    display: block;
+}

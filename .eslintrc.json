@@ -40,7 +40,11 @@
         "max-len": ["error", { "code": 120, "tabWidth": 4, "ignoreComments": true }],
         "linebreak-style": ["error", "unix"],
         "no-trailing-spaces": ["error"],
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "arrow-body-style": ["error", "always"],
+        "array-bracket-spacing": ["error", "always"],
+        "object-curly-spacing": ["error", "always"],
+        "space-in-parens": ["error", "never"]
       }
     },
     {

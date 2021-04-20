@@ -6,11 +6,11 @@ import { ReportsComponent } from './views/reports/reports.component';
 const routes: Routes = [
     { path: 'reports', component: ReportsComponent },
     { path: '',   redirectTo: '/reports', pathMatch: 'full' },
-    {path: '**', component: Page404Component}
+    { path: '**', component: Page404Component }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

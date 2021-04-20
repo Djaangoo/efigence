@@ -14,10 +14,17 @@ const cors=require('cors');
 app.listen(3000, 
     () => console.log("Server Start at the Port"));
 
-app.get('/data', alldata);
-  
-function alldata(request, response) {
-    response.send(elements);
-}
 app.use(express.static('public'));
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    allowedHeaders: "'X-Requested-With,content-type'",
+    credentials: true
+}));
+
+
+app.get('/', alldata);
+  
+function alldata(req, res) {
+    res.send(elements);
+}
