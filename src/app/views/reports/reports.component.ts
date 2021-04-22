@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ReportsService } from 'src/app/core/services/reports.service';
 import { Report, Search } from 'src/app/model/interfaces';
 @Component({
@@ -6,23 +7,29 @@ import { Report, Search } from 'src/app/model/interfaces';
     templateUrl: './reports.component.html',
     styleUrls: [ './reports.component.scss' ]
 })
-export class ReportsComponent implements OnInit {
+export class ReportsComponent implements OnInit, OnDestroy {
     reportsList: Report[] = [];
-    constructor(private reportsService: ReportsService) { }
+    private dataSubscription: Subscription = new Subscription();
+    private dataUpdateSubscription: Subscription = new Subscription();
+    constructor(private reportsService: ReportsService,) { }
 
     ngOnInit() {
-        this.reportsService.getData()
+        this.dataSubscription = this.reportsService.getData()
             .subscribe((data: Report[]) => {
                 this.reportsList = data;
             });
     }
 
     updateReportsList(values: Search) {
-        console.log(values);
-        this.reportsService.getFilteredData(values)
+        this.dataUpdateSubscription = this.reportsService.getFilteredData(values)
             .subscribe((data: Report[]) => {
                 this.reportsList = data;
                 console.log(data.length);
             });
+    }
+
+    ngOnDestroy() {
+        this.dataSubscription.unsubscribe();
+        this.dataUpdateSubscription.unsubscribe();
     }
 }

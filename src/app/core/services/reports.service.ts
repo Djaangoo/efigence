@@ -41,7 +41,7 @@ export class ReportsService {
                         return this.datePipe.transform(report.date, 'YYYY') === formValues.year
                          && (formValues.categories.length ? formValues.categories.includes(report.category) : true)
                          && (report.description.includes(formValues.phrase)
-                        && report.title.includes(formValues.phrase));
+                        || report.title.includes(formValues.phrase));
                     });
             })
         );
