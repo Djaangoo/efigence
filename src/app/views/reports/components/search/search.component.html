@@ -1,13 +1,79 @@
 <article class="search">
-  <div class="row">
-    <div class="col-2">
-      <app-select ></app-select>
-    </div>
-    <div class="col-10">
-      <app-search-input></app-search-input>
-    </div>
-    <div class="col-12">
-      <app-tags></app-tags>
-    </div>
-  </div>
+    <form [formGroup]="searchForm"
+          (ngSubmit)="submitForm()"
+          novalidate>
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="select row">
+                    <div class="col-12">
+                        <div ngbDropdown
+                             class="select__container">
+                            <ng-select class="select__value"
+                                       id="year"
+                                       (change)="submitForm()"
+                                       name="year"
+                                       formControlName="year"
+                                       [clearable]="false"
+                                       [(ngModel)]="selectedYear"
+                                       [searchable]="false">
+
+                                <ng-option class="select__item"
+                                           *ngFor="let year of yearsList"
+                                           [value]="year">{{ year }}</ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-9">
+                <div class="search-input">
+                    <div class="search-input__container">
+                        <div class="search-input__field-container">
+                            <input class="search-input__field"
+                                   (keydown)="submitForm()"
+                                   id="phrase"
+                                   name="phrase"
+                                   formControlName="phrase"
+                                   placeholder="Podaj nazwe, numer lub date raportu"
+                                   type="text" />
+                        </div>
+                        <div>
+                            <button class="search-input__btn btn btn-primary">
+                                Wyszukaj
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="tags  row">
+                    <div class="col-auto btn-group">
+                        <label class="btn tags__label"
+                               (click)="clearCategories()"
+                               [ngClass]="{
+                'tags__label--active': !searchForm.get('categories').length
+              }">
+
+                            <span class="tags__name">Wszystkie</span>
+                            <i *ngIf="!searchForm.get('categories').length"
+                               class="tags__icon bi bi-x"></i>
+                        </label>
+                    </div>
+                    <div class="col-auto btn-group"
+                         *ngFor="let category of categories">
+                        <label class="btn tags__label"
+                               [attr.for]="category"
+                               (click)="toggleCategory(category)"
+                               [ngClass]="{
+                'tags__label--active': searchForm.get('categories').value.includes(category)
+              }">
+                            <span class="tags__name">{{ category }}</span>
+                            <i *ngIf="searchForm.get('categories').value.includes(category)"
+                               class="tags__icon bi bi-x"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </article>

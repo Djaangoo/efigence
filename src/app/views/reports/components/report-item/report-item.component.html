@@ -1,1 +1,39 @@
-<p>{{report.title}}</p>
+<div class="report-item" [ngClass]="{'report-item--first': isFirst}">
+  <div class="row">
+      <div class="col-2">
+          <time class="report-item__day" [attr.datetime]="report.date | date:'YYYY-MM-DD'">{{report.date | date:'dd.MM.YYYY'}}</time>
+          <time class="report-item__hour" [attr.datetime]="report.date | date:'H:MM'">{{report.date | date:'H.MM'}}</time>
+          <span class="report-item__tag">{{report.category}}</span>
+      </div>
+      <div class="col-12 col-md-10">
+          <h3 class="report-item__title">{{report.title}}</h3>
+          <p class="report-item__description">{{report.description}}</p>
+          <div class="row">
+              <div class="col-auto">
+                <a href="#" class="report-item__link">Zobacz raport</a>
+              </div>
+              <div class="col">
+                    <ng-template [ngIf]="report.files.length === 1" [ngIfElse]="elseBlock">
+                        <a href="#" class="report-item__link">Pobierz raport {{report.files[0].filesize | fileSize}}</a>
+                    </ng-template>
+                
+                    <ng-template #elseBlock>
+                        <ng-template [ngIf]="report.files.length > 1">
+                            <span (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse" class="report-item__link report-item__link--trigger">
+                                Pliki do pobrania ({{report.files.length}}) 
+                                <i class="report-item__arrow bi bi-chevron-up" [ngClass]="{'report-item__arrow--active': !isCollapsed}"></i>
+                            </span>
+
+                            <div class="report-item__link-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                                <a href="#" *ngFor="let file of report.files" class="report-item__link report-item__link--collapsed">
+                                    Pobierz raport {{file.filesize | fileSize}}
+                                </a>
+                                
+                            </div>
+                        </ng-template>
+                    </ng-template>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

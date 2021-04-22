@@ -4,7 +4,8 @@ import { ListComponent } from './components/list/list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReportsComponent } from './reports.component';
 import { ReportItemComponent } from './components/report-item/report-item.component';
-
+import { FileSizePipe } from './pipes/fileSize/file-size.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,10 +13,13 @@ import { ReportItemComponent } from './components/report-item/report-item.compon
         SearchComponent,
         ListComponent,
         ReportsComponent,
-        ReportItemComponent
+        ReportItemComponent,
+        FileSizePipe,
     ],
     imports: [
-        SharedModule
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule,
     ]
 })
 export class ReportsModule { }

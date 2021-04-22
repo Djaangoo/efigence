@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportsService } from 'src/app/core/services/reports.service';
-import { Report } from 'src/app/model/interfaces';
+import { Report, Search } from 'src/app/model/interfaces';
 @Component({
     selector: 'app-reports',
     templateUrl: './reports.component.html',
@@ -17,4 +17,12 @@ export class ReportsComponent implements OnInit {
             });
     }
 
+    updateReportsList(values: Search) {
+        console.log(values);
+        this.reportsService.getFilteredData(values)
+            .subscribe((data: Report[]) => {
+                this.reportsList = data;
+                console.log(data.length);
+            });
+    }
 }

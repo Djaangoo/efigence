@@ -1,5 +1,10 @@
-<article>
-  <h1>List</h1>
-
-  <app-report-item *ngFor="let report of data" [report]="report"></app-report-item>
+<article class="list">
+  <div class="row">
+    <app-report-item
+      class="col-12"
+      *ngFor="let report of data; first as isFirst"
+      [report]="report"
+      [isFirst]="isFirst"
+    ></app-report-item>
+  </div>
 </article>

@@ -8,10 +8,12 @@ import { Report } from 'src/app/model/interfaces';
 })
 export class ReportItemComponent implements OnInit {
     @Input() report: Report = {} as Report;
-
+    @Input() isFirst = false;
+    public isCollapsed = true;
     constructor() { }
 
     ngOnInit(): void {
+
     }
 
 }

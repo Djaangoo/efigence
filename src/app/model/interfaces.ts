@@ -12,3 +12,9 @@ export interface File {
     filename: string;
     filesize: number;
 }
+
+export interface Search {
+    phrase: string;
+    categories: Category[];
+    year: string;
+}

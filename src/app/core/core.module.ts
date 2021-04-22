@@ -1,10 +1,13 @@
+import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReportsService } from './services/reports.service';
 
 @NgModule({
-    imports: [ HttpClientModule ],
-    providers: [ ReportsService ]
+    imports: [ HttpClientModule, FormsModule, ReactiveFormsModule ],
+    exports: [ HttpClientModule, FormsModule, ReactiveFormsModule ],
+    providers: [ ReportsService, DatePipe ]
 })
 export class CoreModule {
     constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

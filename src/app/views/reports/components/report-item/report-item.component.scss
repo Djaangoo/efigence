@@ -1,0 +1,99 @@
+@import "/src/assets/styles/index.scss";
+
+.report-item {
+    border-top: 1px solid getUiColor("gray", 3);
+    padding: 0;
+    padding: getSpace('md') 0;
+
+    @include media('md') {
+        padding: getSpace("md") 0 getSpace("md") getSpace("md");
+    }
+
+    &--first {
+        border-top: none;
+    }
+
+    &__day{
+        display: block;
+        @include fontSize('xs')
+
+  }
+
+    &__hour{
+        display: block;
+        @include fontSize('xs')
+
+  }
+
+    &__tag{
+        @include fontSize('sm');
+        font-weight: getFontWeight('light');
+        color: getUiColor('gray', 5);
+        display: block;
+        margin-top: getSpace('xs');
+    }
+
+    &__title{
+        @include fontSize('lg')
+  }
+
+    &__description {
+        @include fontSize('xs')
+  }
+
+    &__link {
+        @include fontSize('xs');
+        color: getUiColor('green');
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+        &:hover{
+            text-decoration: none;
+            color: getUiColor('green', 5);
+        }
+
+        &--collapsed {
+            display: block;
+            padding-top: getSpace('xs');
+        }
+
+        &--trigger {
+            padding-bottom: getSpace('xs');
+        }
+    }
+
+    &__link-collapse {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            top: getSpace('xs');
+            transform: translateY(-100%);
+            left: 0;
+            width: 100%;
+            height: 1px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            background-color: getUiColor("gray", 3);
+        }
+        
+        .report-item__link:first-child {
+            padding-top: getSpace('md');
+            display: block;
+        }
+    }
+  
+    &__arrow{
+        margin-left: getSpace('xs');
+        &::before {
+            transform: rotateZ(0deg);
+            will-change: transform;
+            transition: transform 0.3s ease-in-out;
+    
+        }
+        &--active {
+            &::before {
+                transform: rotateZ(180deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import "/src/assets/styles/index.scss";
+
+.list {
+    background-color: getUiColor("gray", 1);
+    margin-top: getSpace('xxl');
+    padding: getSpace("lg");
+
+    @include media('lg') {
+        padding: getSpace("lg") getSpace("xxl");
+    }
+}

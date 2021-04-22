@@ -1,1 +1,9 @@
 @import "/src/assets/styles/index.scss";
+
+
+.empty-state {
+    background-color: getUiColor('gray', 1);
+    margin: getSpace('xl') auto;
+    text-align: center;
+    padding: getSpace('xl') ;
+}
