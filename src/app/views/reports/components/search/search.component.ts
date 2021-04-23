@@ -17,9 +17,9 @@ export class SearchComponent implements OnInit, OnDestroy {
     yearsList: string[] = [];
     searchForm: any;
     selectedYear = '';
-    private inputChangeSubscription: Subscription = new Subscription();
-    private yearSubscription: Subscription  = new Subscription();
-    private categorySubscription: Subscription  = new Subscription();
+    private inputChangeSubscription: Subscription;
+    private yearSubscription: Subscription;
+    private categorySubscription: Subscription;
 
     constructor(private reportsService: ReportsService, private formBuilder: FormBuilder) {
         this.searchForm = this.formBuilder.group({

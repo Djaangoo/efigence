@@ -9,9 +9,9 @@ import { Report, Search } from 'src/app/model/interfaces';
 })
 export class ReportsComponent implements OnInit, OnDestroy {
     reportsList: Report[] = [];
-    private dataSubscription: Subscription = new Subscription();
-    private dataUpdateSubscription: Subscription = new Subscription();
-    constructor(private reportsService: ReportsService,) { }
+    private dataUpdateSubscription: Subscription;
+    private dataSubscription: Subscription;
+    constructor(private reportsService: ReportsService ) { }
 
     ngOnInit() {
         this.dataSubscription = this.reportsService.getData()
